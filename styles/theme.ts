@@ -9,6 +9,9 @@ const theme = extendTheme({
     },
     a: {
       color: 'teal.300'
+    },
+    button: {
+      color: 'white'
     }
   },
   fonts: {

@@ -1,15 +1,12 @@
 import { Heading, Flex, Box, Button, Center } from '@chakra-ui/react'
 import type { NextPage } from 'next/types'
-import { useSession, signIn, } from "next-auth/react";
+import { useSession, signIn, signOut, } from "next-auth/react";
 import Image from "next/image";
+import { SignInButton } from '../../components/signIn/SignInButton';
 
 export const SignIn: NextPage = () => {
   const {data: session} = useSession();
-
-  const handleSignin = (e: Event) => {
-    e.preventDefault();
-    signIn();
-  };
+  console.log(session)
 
   return (
     <Flex justify="center" align="center" h="100vh">
@@ -17,11 +14,11 @@ export const SignIn: NextPage = () => {
         <Center>
           <Image src="/images/login.svg" height="400" width="400" alt="Login" />
         </Center>
-        <Heading size="xl">Sign In with your preferred social account</Heading>
+        <Heading size="xl">Sign in with your preferred social account</Heading>
         <Center m={12}>
-          <Button size="lg" colorScheme="purple">
-            Sign in with Google
-          </Button>
+          {!session && (
+            <SignInButton/>
+          )}
         </Center>
       </Box>
     </Flex>
