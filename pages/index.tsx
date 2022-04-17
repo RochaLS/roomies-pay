@@ -40,7 +40,7 @@ const Home: NextPage = () => {
           boxShadow="sm"
           borderRadius="10px"
         >
-          <Table variant="simple" size="lg">
+          <Table variant="striped" size="lg">
             <Thead>
               <Tr>
                 <Th>Bought by</Th>
